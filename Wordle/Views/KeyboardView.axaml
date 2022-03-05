@@ -16,8 +16,8 @@
                         <DataTemplate x:CompileBindings="False" x:DataType="viewModels:LetterKeyViewModel" DataType="viewModels:LetterKeyViewModel">
                             <controls:KeyboardLetterButton
                                 Width="43"
-                                Height="58"
-                                Margin="3,4"
+                                Height="64"
+                                Margin="2,3"
                                 Command="{Binding KeyPressed}"
                                 CommandParameter="{Binding Label}"
                                 Content="{Binding Label}"

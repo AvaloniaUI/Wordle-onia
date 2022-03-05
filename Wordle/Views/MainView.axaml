@@ -9,7 +9,7 @@
              x:DataType="viewModels:MainViewModel"
              x:CompileBindings="True"
              Foreground="White"
-             Background="#171C2C">
+             Background="#171C2C" Focusable="True">
     <Design.DataContext>
         <viewModels:MainViewModel />
     </Design.DataContext>
@@ -105,7 +105,7 @@
                 </Viewbox>
                 <!--<views:NotificationsView HorizontalAlignment="Center" />-->
             </Grid>
-            <Viewbox Grid.Row="3" Margin="5" MaxWidth="500">
+            <Viewbox Grid.Row="3" Margin="2 5 2 15" MaxWidth="500">
                 <views:KeyboardView DataContext="{Binding Keyboard}" />    
             </Viewbox>
         </Grid>
