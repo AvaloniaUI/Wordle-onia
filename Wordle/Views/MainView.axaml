@@ -54,7 +54,7 @@
                     FontSize="24"
                     FontWeight="Bold"
                     Foreground="{DynamicResource TextForegroundKey}"
-                    Text="WPFordle" />
+                    Text="Wordle" />
                 <Button
                     Grid.Column="3"
                     Width="30"
@@ -101,11 +101,13 @@
                     VerticalAlignment="Center"
                     Stretch="Uniform"
                     StretchDirection="DownOnly">
-                    <views:GameView DataContext="{Binding Game}}" />
+                    <views:GameView DataContext="{Binding Game}" />
                 </Viewbox>
                 <!--<views:NotificationsView HorizontalAlignment="Center" />-->
             </Grid>
-            <views:KeyboardView DataContext="{Binding Keyboard}" Grid.Row="3" Margin="5" />
+            <Viewbox Grid.Row="3" Margin="5" MaxWidth="500">
+                <views:KeyboardView DataContext="{Binding Keyboard}" />    
+            </Viewbox>
         </Grid>
         <!--<controls:Layer
             x:Name="SettingsLayer"
