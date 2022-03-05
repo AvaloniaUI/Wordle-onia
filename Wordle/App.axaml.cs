@@ -2,7 +2,6 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using CommunityToolkit.Mvvm.Messaging;
-using Splat;
 using Wordle.Services;
 using Wordle.Services.Impl;
 using Wordle.ViewModels;
@@ -19,9 +18,9 @@ namespace Wordle
 
         public override void OnFrameworkInitializationCompleted()
         {
-            Locator.CurrentMutable.RegisterConstant<IMessenger>(WeakReferenceMessenger.Default);
-            Locator.CurrentMutable.RegisterConstant<IGuessValidationService>(new GuessValidationServiceImpl());
-            Locator.CurrentMutable.RegisterConstant<IWordProvider>(new WordProviderImpl());
+            AvaloniaLocator.CurrentMutable.Bind<IMessenger>().ToConstant(WeakReferenceMessenger.Default);
+            AvaloniaLocator.CurrentMutable.Bind<IGuessValidationService>().ToConstant(new GuessValidationServiceImpl());
+            AvaloniaLocator.CurrentMutable.Bind<IWordProvider>().ToConstant(new WordProviderImpl());
             
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {

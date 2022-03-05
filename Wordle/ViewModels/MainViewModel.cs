@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Avalonia;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
-using Splat;
 using Wordle.Models;
 using Wordle.Services;
 
@@ -17,15 +17,15 @@ namespace Wordle.ViewModels
         
         public MainViewModel()
         {
-            var messenger = Locator.Current.GetService<IMessenger>();
+            var messenger = AvaloniaLocator.Current.GetService<IMessenger>();
             
             Dispatcher.UIThread.Post(async () =>
             {
-                var wordProvider = Locator.Current.GetService<IWordProvider>();
+                var wordProvider = AvaloniaLocator.Current.GetService<IWordProvider>();
 
                 await wordProvider.LoadAsync();
                 
-                var gameModel = new GameModel(Locator.Current.GetService<IGuessValidationService>(), wordProvider);
+                var gameModel = new GameModel(AvaloniaLocator.Current.GetService<IGuessValidationService>(), wordProvider);
 
                 Game = new GameViewModel(gameModel, messenger);
             });
