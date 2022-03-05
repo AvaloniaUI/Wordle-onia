@@ -1,0 +1,66 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Wordle.ViewModels"
+             xmlns:controls="clr-namespace:Wordle.Views.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="viewModels:KeyboardViewModel"
+             x:CompileBindings="True"
+             x:Class="Wordle.Views.KeyboardView">
+    <ItemsControl Items="{Binding Keys}">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <ItemsControl Items="{Binding}">
+                    <ItemsControl.DataTemplates>
+                        <DataTemplate x:CompileBindings="False" x:DataType="viewModels:LetterKeyViewModel" DataType="viewModels:LetterKeyViewModel">
+                            <controls:KeyboardLetterButton
+                                Width="43"
+                                Height="58"
+                                Margin="3,4"
+                                Command="{Binding KeyPressed}"
+                                CommandParameter="{Binding Label}"
+                                Content="{Binding Label}"
+                                Cursor="Hand"
+                                State="{Binding LetterState}" />
+                        </DataTemplate>
+                        <DataTemplate x:CompileBindings="False" x:DataType="viewModels:EnterKeyViewModel" DataType="viewModels:EnterKeyViewModel">
+                            <Button
+                                Width="65"
+                                Height="58"
+                                Margin="3"
+                                Command="{Binding KeyPressed}"
+                                Content="ENTER" />
+                        </DataTemplate>
+                        <DataTemplate x:CompileBindings="False" x:DataType="viewModels:DeleteKeyViewModel" DataType="viewModels:DeleteKeyViewModel">
+                            <Button
+                                Width="65"
+                                Height="58"
+                                Margin="3"
+                                Command="{Binding KeyPressed}">
+                                <Viewbox
+                                    Width="26"
+                                    Height="26"
+                                    Stretch="Uniform">
+                                    <Canvas Width="24" Height="24">
+                                        <Path Data="M19,15.59L17.59,17L14,13.41L10.41,17L9,15.59L12.59,12L9,8.41L10.41,7L14,10.59L17.59,7L19,8.41L15.41,12L19,15.59M22,3A2,2 0 0,1 24,5V19A2,2 0 0,1 22,21H7C6.31,21 5.77,20.64 5.41,20.11L0,12L5.41,3.88C5.77,3.35 6.31,3 7,3H22M22,5H7L2.28,12L7,19H22V5Z" Fill="{DynamicResource KeyTextForegroundKey}" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.DataTemplates>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

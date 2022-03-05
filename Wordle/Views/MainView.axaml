@@ -1,0 +1,129 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Wordle.ViewModels"
+             xmlns:views="clr-namespace:Wordle.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Wordle.Views.MainView"
+             x:DataType="viewModels:MainViewModel"
+             x:CompileBindings="True"
+             Foreground="White"
+             Background="#171C2C">
+    <Design.DataContext>
+        <viewModels:MainViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <Grid Background="{DynamicResource WindowBackgroundKey}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="5,5,5,7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32" />
+                    <ColumnDefinition Width="32" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="32" />
+                    <ColumnDefinition Width="32" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Grid.Column="0"
+                    Width="30"
+                    Height="30"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Right">
+                <Viewbox
+                    Width="22"
+                    Height="22"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <Canvas Width="24" Height="24">
+                        <Path
+                            Data="M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z"
+                            Fill="{DynamicResource TextForegroundKey}" />
+                    </Canvas>
+                </Viewbox>
+                </Button>
+                <TextBlock
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TextForegroundKey}"
+                    Text="WPFordle" />
+                <Button
+                    Grid.Column="3"
+                    Width="30"
+                    Height="30"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Right">
+                    <Viewbox
+                        Width="22"
+                        Height="22"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <Canvas Width="24" Height="24">
+                            <Path
+                                Data="M 16 11 V 3 H 8 v 6 H 2 v 12 h 20 V 11 H 16 Z M 10 5 h 4 v 14 h -4 V 5 Z M 4 11 h 4 v 8 H 4 V 11 Z M 20 19 h -4 v -6 h 4 V 19 Z"
+                                Fill="{DynamicResource TextForegroundKey}" />
+                        </Canvas>
+                    </Viewbox>
+                </Button>
+                <Button
+                    Grid.Column="4"
+                    Width="30"
+                    Height="30"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Right">
+                    <Viewbox
+                        Width="22"
+                        Height="22"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <Canvas Width="24" Height="24">
+                            <Path
+                                Data="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"
+                                Fill="{DynamicResource TextForegroundKey}" />
+                        </Canvas>
+                    </Viewbox>
+                </Button>
+            </Grid>
+            <Rectangle
+                Grid.Row="1"
+                Margin="5,0" />
+            <Grid Grid.Row="2" Margin="5">
+                <Viewbox
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Stretch="Uniform"
+                    StretchDirection="DownOnly">
+                    <views:GameView DataContext="{Binding Game}}" />
+                </Viewbox>
+                <!--<views:NotificationsView HorizontalAlignment="Center" />-->
+            </Grid>
+            <views:KeyboardView DataContext="{Binding Keyboard}" Grid.Row="3" Margin="5" />
+        </Grid>
+        <!--<controls:Layer
+            x:Name="SettingsLayer"
+            Title="SETTINGS"
+            CloseRequested="CloseSettingsLayer">
+            <views:SettingsView />
+        </controls:Layer>
+        <controls:Layer
+            x:Name="HelpLayer"
+            Title="HOW TO PLAY"
+            CloseRequested="CloseHelpLayer">
+            <views:HowToPlayView x:Name="HowToPlayLayerView" />
+        </controls:Layer>
+        <controls:Dialog x:Name="HelpDialog" CloseRequested="CloseHelpDialog">
+            <views:HowToPlayView x:Name="HowToPlayDialogView" />
+        </controls:Dialog>
+        <controls:Dialog x:Name="StatisticsDialog" CloseRequested="CloseStatisticsDialog">
+            <views:StatisticsView Width="350" />
+        </controls:Dialog>-->
+    </Grid>
+</UserControl>

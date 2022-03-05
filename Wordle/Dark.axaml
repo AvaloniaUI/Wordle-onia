@@ -1,0 +1,24 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <Styles.Resources>
+        <SolidColorBrush x:Key="WindowBackgroundKey" Color="#121213" />
+        <SolidColorBrush x:Key="TextForegroundKey" Color="#ffffff" />
+        <SolidColorBrush x:Key="KeyBackgroundKey" Color="#818384" />
+        <SolidColorBrush x:Key="KeyTextForegroundKey" Color="#ffffff" />
+        <SolidColorBrush x:Key="LetterBorderBrushKey" Color="#565758" />
+        <SolidColorBrush x:Key="EmptyLetterBorderBrushKey" Color="#3a3a3c" />
+        <SolidColorBrush x:Key="GuessedTextForegroundKey" Color="#ffffff" />
+        <SolidColorBrush x:Key="CorrectGuessKey" Color="#618c55" />
+        <SolidColorBrush x:Key="IndeterminateGuessKey" Color="#b1a04c" />
+        <SolidColorBrush x:Key="IncorrectGuessKey" Color="#3a3a3c" />
+        <SolidColorBrush x:Key="CardBackgroundKey" Color="#ffffff" />
+        <SolidColorBrush x:Key="CardTextForegroundKey" Color="#000000" />
+        <SolidColorBrush x:Key="DialogBackgroundKey" Color="#000000" />
+    </Styles.Resources>
+</Styles>
