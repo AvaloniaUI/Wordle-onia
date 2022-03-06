@@ -31,6 +31,11 @@
   <Style Selector="controls|KeyboardLetterButton">
     <Setter Property="Background" Value="{DynamicResource KeyBackgroundKey}" />
     <Setter Property="Foreground" Value="{DynamicResource TextForegroundKey}" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:.25" />
+      </Transitions>
+    </Setter>
   </Style>
 
   <Style Selector="controls|KeyboardLetterButton:right-letter-placement">
@@ -50,12 +55,7 @@
 
   <Style Selector="controls|KeyboardLetterButton:pressed">
     <Setter Property="Background" Value="{DynamicResource KeyBackgroundKeyPressed}" />
-    <Setter Property="RenderTransform" Value="scale(1.1)" />
-    <Setter Property="Transitions">
-      <Transitions>
-        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:.25" />
-      </Transitions>
-    </Setter>
+    <Setter Property="RenderTransform" Value="scale(1.2,1.2)" />
   </Style>
 
 </Styles>
