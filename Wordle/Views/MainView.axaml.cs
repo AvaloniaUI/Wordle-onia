@@ -77,9 +77,9 @@ namespace Wordle.Views
             base.OnTextInput(e);
         }
 
-        protected override void OnKeyUp(KeyEventArgs e)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
-            base.OnKeyUp(e);
+            base.OnKeyDown(e);
             
             _messenger.Send(new KeyPressedMessage(e.Key));
 
