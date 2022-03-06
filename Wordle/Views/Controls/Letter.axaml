@@ -24,12 +24,20 @@
             <ScaleTransform ScaleX="1" ScaleY="1" />
           </Border.RenderTransform>
           <TextBlock
+            Name="PART_LetterTextBlock"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="{TemplateBinding FontSize}"
             FontWeight="{TemplateBinding FontWeight}"
             Foreground="{TemplateBinding Foreground}"
-            Text="{TemplateBinding Character}" />
+            Text="{TemplateBinding Character}">
+            <TextBlock.Transitions>
+              <Transitions>
+                <TransformOperationsTransition Duration="0:0:0.35" Easing="0.25, 0.1, 0, 2.05"
+                                               Property="RenderTransform" />
+              </Transitions>
+            </TextBlock.Transitions>
+          </TextBlock>
         </Border>
         <!--<ControlTemplate.Triggers>
                         <Trigger Property="Character" Value="{x:Null}">
@@ -58,6 +66,32 @@
     </Setter>
   </Style>
 
+  <Style Selector="controls|Letter /template/ TextBlock#PART_LetterTextBlock">
+    <Setter Property="RenderTransform" Value="scale(0,0) " />
+  </Style>
+
+  <Style Selector="controls|Letter:has-letter /template/ TextBlock#PART_LetterTextBlock">
+    <Setter Property="RenderTransform" Value="scale(1,1) " />
+  </Style>
+
+  <Style Selector="controls|Letter:flip">
+    <Setter Property="Background" Value="{DynamicResource CorrectGuessKey}" />
+    <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
+    <Style.Animations>
+      <Animation Duration="0:0:0.35">
+        <KeyFrame Cue="0%" KeySpline="0.215, 0.61, 0.355, 1">
+          <Setter Property="(ScaleTransform.ScaleY)" Value="1"></Setter>
+        </KeyFrame>
+        <KeyFrame Cue="50%">
+          <Setter Property="(ScaleTransform.ScaleY)" Value="0"></Setter>
+        </KeyFrame>
+        <KeyFrame Cue="100%" KeySpline=" 0.355, 1, 0.215, 0.61">
+          <Setter Property="(ScaleTransform.ScaleY)" Value="1"></Setter>
+        </KeyFrame>
+      </Animation>
+    </Style.Animations>
+  </Style>
+
   <Style Selector="controls|Letter:right-letter-placement">
     <Setter Property="Background" Value="{DynamicResource CorrectGuessKey}" />
     <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
@@ -72,4 +106,5 @@
     <Setter Property="Background" Value="{DynamicResource IncorrectGuessKey}" />
     <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
   </Style>
+
 </Styles>
