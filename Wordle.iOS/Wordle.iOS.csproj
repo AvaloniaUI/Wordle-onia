@@ -6,11 +6,9 @@
     <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <ProvisioningType>manual</ProvisioningType>
     <Nullable>enable</Nullable>
-    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
-    
     <!-- These properties need to be set in order to run on a real iDevice -->
-    <!--<RuntimeIdentifier>ios-arm64</RuntimeIdentifier>-->
-    <!--<CodesignKey></CodesignKey>-->
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <CodesignKey>Apple Development: dan@walms.co.uk (3L323F7VSS)</CodesignKey>
   </PropertyGroup>
 
   <ItemGroup>

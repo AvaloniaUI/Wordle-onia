@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Wordle-onia</string>
 	<key>CFBundleIdentifier</key>
-	<string>companyName.Wordle</string>
+	<string>Avalonia.IosTest</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
