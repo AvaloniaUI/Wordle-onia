@@ -77,7 +77,7 @@ public class Letter : TemplatedControl
         PseudoClasses.Set(":right-letter", newValue == LetterState.RightLetterWrongPlace);
         PseudoClasses.Set(":right-letter-placement", newValue == LetterState.RightLetterRightPlace);
 
-        if (newValue != LetterState.Empty)
+        if (newValue != LetterState.None)
         {
             Dispatcher.UIThread.InvokeAsync(async () =>
             {
