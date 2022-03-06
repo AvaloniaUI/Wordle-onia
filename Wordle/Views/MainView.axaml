@@ -54,7 +54,7 @@
                     FontSize="24"
                     FontWeight="Bold"
                     Foreground="{DynamicResource TextForegroundKey}"
-                    Text="Wordle" />
+                    Text="Wordle-onia" />
                 <Button
                     Grid.Column="3"
                     Width="30"
