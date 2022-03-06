@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia;
 
-namespace Wordle.NetCore
+namespace Wordle.Desktop
 {
     class Program
     {
