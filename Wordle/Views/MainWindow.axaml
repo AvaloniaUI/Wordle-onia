@@ -1,12 +1,17 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:Wordle.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Wordle.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Wordle.Views.MainWindow"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="PreferSystemChrome"
+        CanResize="False" Width="450" Height="800"
+        Background="#171C2C"
         Icon="/Assets/avalonia-logo.ico"
         Title="Wordle">
-        <views:MainView />
+  <Panel>
+    <views:MainView Margin="10 20 10 10" />
+  </Panel>
 </Window>

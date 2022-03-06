@@ -15,7 +15,7 @@
     </Design.DataContext>
 
     <Grid>
-        <Grid Background="{DynamicResource WindowBackgroundKey}" RowDefinitions="*, Auto, Auto">
+        <Grid RowDefinitions="*, Auto, Auto">
             <Grid Grid.Row="0" Margin="5">
                 <Viewbox
                     HorizontalAlignment="Center"
