@@ -14,7 +14,7 @@ jobs:
       uses: actions/setup-dotnet@v1.9.0
 
     - name: Install wasm-tools
-      run: dotnet workload install wasm-tools
+      run: sudo dotnet workload install wasm-tools
 
     - name: Publish .NET Project
       run: dotnet publish Wordle.Web/Wordle.Web.csproj -c Release -o release --nologo
