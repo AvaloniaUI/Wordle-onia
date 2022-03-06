@@ -27,14 +27,20 @@
                 <!--<views:NotificationsView HorizontalAlignment="Center" />-->
             </Grid>
             <Viewbox Grid.Row="1" Margin="2 5 2 15" MaxWidth="500">
-                <Panel>
-                    <views:KeyboardView DataContext="{Binding Keyboard}" />
-                    <Panel Background="#171C2C" VerticalAlignment="Center" IsVisible="{Binding ShowWonDialog}">
-                        <TextBlock TextWrapping="Wrap" Text="Congratulations you solved todays word. Come back tomorrow for another round." />
-                    </Panel>
-                </Panel>
+                <views:KeyboardView DataContext="{Binding Keyboard}" />
             </Viewbox>
+            <Panel Background="#171C2C" VerticalAlignment="Center" IsVisible="{Binding ShowWonDialog}" Height="190" Grid.Row="1" Margin="2 5 2 15" MaxWidth="500">
+                <Border Margin="40" CornerRadius="4">
+                    <StackPanel Spacing="20" DockPanel.Dock="Top">
+                        <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Congratulations you solved todays word. Come back tomorrow for another round." />
+                        <TextBlock TextAlignment="Center" Text="This app was made with Avalonia" />
+                    </StackPanel>
+                </Border>
+            </Panel>
             <Grid Grid.Row="2" Margin="5,5,5,7" ColumnDefinitions="32, 32, *, 32, 32">
+                <Viewbox Grid.Column="1">
+                    <Image Source="/Assets/Icon.png"/>
+                </Viewbox>
                 <TextBlock
                     Grid.Column="2"
                     HorizontalAlignment="Center"
