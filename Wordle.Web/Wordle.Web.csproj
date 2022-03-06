@@ -22,7 +22,7 @@
     <WasmNativeStrip>true</WasmNativeStrip>
 	<EmccCompileOptimizationFlag>-O3</EmccCompileOptimizationFlag>
     <EmccLinkOptimizationFlag>-O3</EmccLinkOptimizationFlag>
-    <RunAOTCompilation>true</RunAOTCompilation>
+    <RunAOTCompilation>false</RunAOTCompilation>
   </PropertyGroup>
   
   <ItemGroup>
