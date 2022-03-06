@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -17,9 +15,7 @@ public class Letter : TemplatedControl
 
     public static readonly StyledProperty<LetterState> StateProperty =
         AvaloniaProperty.Register<Letter, LetterState>(nameof(State));
-
-    private Border? _border;
-    private ScaleTransform? _scale;
+    
     private bool _hasLetter;
 
     public string Character
@@ -62,14 +58,6 @@ public class Letter : TemplatedControl
         }
     }
 
-    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
-    {
-        _border = this.Find<Border>("PART_Border");
-        _scale = this.Find<ScaleTransform>("PART_Scale");
-
-        base.OnApplyTemplate(e);
-    }
-
     private void UpdatePsuedoClasses(LetterState newValue)
     {
         PseudoClasses.Set(":has-letter", _hasLetter);
@@ -87,17 +75,4 @@ public class Letter : TemplatedControl
             }, DispatcherPriority.ApplicationIdle);
         }
     }
-
-    // private void PlayRevealAnimation()
-    // {
-    //     // if (State == LetterState.Empty)
-    //     // {
-    //     //     //.SetResourceReference(ForegroundProperty, "TextForegroundKey");
-    //     //     Background = Brushes.Transparent;
-    //     //     _border.BorderThickness = new Thickness(2);
-    //     //     return;
-    //     // }
-    //
-    //     UpdatePsuedoClasses(State);
-    // }
 }
