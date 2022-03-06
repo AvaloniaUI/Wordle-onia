@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Wordle</string>
+	<string>Wordle-onia</string>
 	<key>CFBundleIdentifier</key>
 	<string>companyName.Wordle</string>
 	<key>CFBundleShortVersionString</key>
