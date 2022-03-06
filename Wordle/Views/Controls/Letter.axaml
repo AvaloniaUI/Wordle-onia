@@ -1,38 +1,37 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:Wordle.Views.Controls">
-    <Design.PreviewWith>
-        <controls:Letter />
-    </Design.PreviewWith>
+  <Design.PreviewWith>
+    <controls:Letter />
+  </Design.PreviewWith>
 
-    <Style Selector="controls|Letter">
-       <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource TextForegroundKey}" />
-        <Setter Property="Width" Value="65" />
-        <Setter Property="Height" Value="65" />
-        <Setter Property="FontSize" Value="30" />
-        <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Template">
-                <ControlTemplate TargetType="{x:Type controls:Letter}">
-                    <Border
-                        x:Name="PART_Border"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{DynamicResource LetterBorderBrushKey}"
-                        BorderThickness="2"
-                        RenderTransformOrigin="0.5, 0.5">
-                        <Border.RenderTransform>
-                            <ScaleTransform ScaleX="1" ScaleY="1" />
-                        </Border.RenderTransform>
-                        <TextBlock
-                            Margin="0,0,0,5"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            FontSize="{TemplateBinding FontSize}"
-                            FontWeight="{TemplateBinding FontWeight}"
-                            Foreground="{TemplateBinding Foreground}"
-                            Text="{TemplateBinding Character}" />
-                    </Border>
-                    <!--<ControlTemplate.Triggers>
+  <Style Selector="controls|Letter">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource TextForegroundKey}" />
+    <Setter Property="Width" Value="65" />
+    <Setter Property="Height" Value="65" />
+    <Setter Property="FontSize" Value="30" />
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="Template">
+      <ControlTemplate TargetType="{x:Type controls:Letter}">
+        <Border
+          x:Name="PART_Border"
+          Background="{TemplateBinding Background}"
+          BorderBrush="{DynamicResource LetterBorderBrushKey}"
+          BorderThickness="2"
+          RenderTransformOrigin="0.5, 0.5">
+          <Border.RenderTransform>
+            <ScaleTransform ScaleX="1" ScaleY="1" />
+          </Border.RenderTransform>
+          <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="{TemplateBinding FontSize}"
+            FontWeight="{TemplateBinding FontWeight}"
+            Foreground="{TemplateBinding Foreground}"
+            Text="{TemplateBinding Character}" />
+        </Border>
+        <!--<ControlTemplate.Triggers>
                         <Trigger Property="Character" Value="{x:Null}">
                             <Setter TargetName="PART_Border" Property="BorderBrush" Value="{DynamicResource EmptyLetterBorderBrushKey}" />
                             <Trigger.ExitActions>
@@ -55,22 +54,22 @@
                             </Trigger.ExitActions>
                         </Trigger>
                     </ControlTemplate.Triggers>-->
-                </ControlTemplate>
-        </Setter>
-    </Style>
-    
-    <Style Selector="controls|Letter:right-letter-placement">
-        <Setter Property="Background" Value="{DynamicResource CorrectGuessKey}" />
-        <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
-    </Style>
-    
-    <Style Selector="controls|Letter:right-letter">
-        <Setter Property="Background" Value="{DynamicResource IndeterminateGuessKey}" />
-        <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
-    </Style>
-        
-    <Style Selector="controls|Letter:wrong-letter">
-        <Setter Property="Background" Value="{DynamicResource IncorrectGuessKey}" />
-        <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
-    </Style>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="controls|Letter:right-letter-placement">
+    <Setter Property="Background" Value="{DynamicResource CorrectGuessKey}" />
+    <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
+  </Style>
+
+  <Style Selector="controls|Letter:right-letter">
+    <Setter Property="Background" Value="{DynamicResource IndeterminateGuessKey}" />
+    <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
+  </Style>
+
+  <Style Selector="controls|Letter:wrong-letter">
+    <Setter Property="Background" Value="{DynamicResource IncorrectGuessKey}" />
+    <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
+  </Style>
 </Styles>

@@ -10,6 +10,7 @@
         <SolidColorBrush x:Key="WindowBackgroundKey" Color="#121213" />
         <SolidColorBrush x:Key="TextForegroundKey" Color="#ffffff" />
         <SolidColorBrush x:Key="KeyBackgroundKey" Color="#818384" />
+        <SolidColorBrush x:Key="KeyBackgroundKeyPressed" Color="#414344" />
         <SolidColorBrush x:Key="KeyTextForegroundKey" Color="#ffffff" />
         <SolidColorBrush x:Key="LetterBorderBrushKey" Color="#565758" />
         <SolidColorBrush x:Key="EmptyLetterBorderBrushKey" Color="#3a3a3c" />
