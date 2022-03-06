@@ -5,6 +5,9 @@
     <!--Temporal hack that fixes compilation in VS-->
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <AvaloniaVersion>0.10.999-cibuild0019037-beta</AvaloniaVersion>
+    <EmccTotalMemory>16777216</EmccTotalMemory>
+    <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
+    <BlazorWebAssemblyPreserveCollationData>false</BlazorWebAssemblyPreserveCollationData>
   </PropertyGroup>
 
   <!-- In debug, make builds faster by reducing optimizations -->
