@@ -27,7 +27,12 @@
                 <!--<views:NotificationsView HorizontalAlignment="Center" />-->
             </Grid>
             <Viewbox Grid.Row="1" Margin="2 5 2 15" MaxWidth="500">
-                <views:KeyboardView DataContext="{Binding Keyboard}" />    
+                <Panel>
+                    <views:KeyboardView DataContext="{Binding Keyboard}" />
+                    <Panel Background="#171C2C" VerticalAlignment="Center" IsVisible="{Binding ShowWonDialog}">
+                        <TextBlock TextWrapping="Wrap" Text="Congratulations you solved todays word. Come back tomorrow for another round." />
+                    </Panel>
+                </Panel>
             </Viewbox>
             <Grid Grid.Row="2" Margin="5,5,5,7" ColumnDefinitions="32, 32, *, 32, 32">
                 <TextBlock
@@ -39,23 +44,5 @@
                     Text="Wordle-onia" />
             </Grid>
         </Grid>
-        <!--<controls:Layer
-            x:Name="SettingsLayer"
-            Title="SETTINGS"
-            CloseRequested="CloseSettingsLayer">
-            <views:SettingsView />
-        </controls:Layer>
-        <controls:Layer
-            x:Name="HelpLayer"
-            Title="HOW TO PLAY"
-            CloseRequested="CloseHelpLayer">
-            <views:HowToPlayView x:Name="HowToPlayLayerView" />
-        </controls:Layer>
-        <controls:Dialog x:Name="HelpDialog" CloseRequested="CloseHelpDialog">
-            <views:HowToPlayView x:Name="HowToPlayDialogView" />
-        </controls:Dialog>
-        <controls:Dialog x:Name="StatisticsDialog" CloseRequested="CloseStatisticsDialog">
-            <views:StatisticsView Width="350" />
-        </controls:Dialog>-->
     </Grid>
 </UserControl>

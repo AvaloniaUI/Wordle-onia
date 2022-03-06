@@ -38,6 +38,11 @@ public class GameViewModel : ObservableViewModel<GameModel>
             _messenger.Send(new PushNotificationMessage(guess.Message));
         }
 
+        if (guess.Success)
+        {
+            _messenger.Send(new GameWonMessage());
+        }
+
         if (guess.Validated && guess.GuessedWord != null)
         {
             foreach (LetterModel guessedWordLetter in guess.GuessedWord.Letters)
