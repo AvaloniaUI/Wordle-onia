@@ -55,7 +55,7 @@
 
   <Style Selector="controls|KeyboardLetterButton:pressed">
     <Setter Property="Background" Value="{DynamicResource KeyBackgroundKeyPressed}" />
-    <Setter Property="RenderTransform" Value="scale(1.2,1.2)" />
+    <Setter Property="RenderTransform" Value="scale(1.1,1.1)" />
   </Style>
 
 </Styles>
