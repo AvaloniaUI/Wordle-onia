@@ -8,10 +8,11 @@
         ExtendClientAreaToDecorationsHint="True"
         ExtendClientAreaChromeHints="PreferSystemChrome"
         CanResize="False" Width="450" Height="800"
-        Background="#171C2C"
+        Background="{x:Null}"
         Icon="/Assets/avalonia-logo.ico"
         Title="Wordle">
   <Panel>
-    <views:MainView Margin="10 20 10 10" />
+      <Panel IsHitTestVisible="False" Background="#171C2C" />
+      <views:MainView Margin="10 40 10 10" />
   </Panel>
 </Window>

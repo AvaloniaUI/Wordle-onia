@@ -5,6 +5,7 @@ using Avalonia;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
+using Wordle.Messages;
 using Wordle.Models;
 using Wordle.Services;
 
@@ -14,6 +15,9 @@ namespace Wordle.ViewModels
     {
         [ObservableProperty]
         private GameViewModel _game;
+
+        [ObservableProperty] 
+        private bool _showWonDialog;
         
         public MainViewModel()
         {
@@ -31,6 +35,11 @@ namespace Wordle.ViewModels
             });
             
             Keyboard = new KeyboardViewModel(messenger);
+            
+            messenger.Register<MainViewModel, GameWonMessage>(this, (recipient, message) =>
+            {
+                ShowWonDialog = true;
+            });
         }
 
         public KeyboardViewModel Keyboard { get; }
