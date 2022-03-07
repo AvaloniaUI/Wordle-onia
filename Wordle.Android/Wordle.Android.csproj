@@ -9,13 +9,15 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <MSBuildEnableWorkloadResolver>true</MSBuildEnableWorkloadResolver>
-    <AvaloniaVersion>0.10.999-cibuild0019037-beta</AvaloniaVersion>
+    <AvaloniaVersion>0.10.999-cibuild0019067-beta</AvaloniaVersion>
+    <!--<RunAOTCompilation>true</RunAOTCompilation>
+    <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>-->
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="..\..\build\Assets\Icon.png">
+    <AndroidResource Include="Icon.png">
       <Link>Resources\drawable\Icon.png</Link>
     </AndroidResource>
   </ItemGroup>
