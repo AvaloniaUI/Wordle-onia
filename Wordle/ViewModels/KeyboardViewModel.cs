@@ -137,16 +137,7 @@ public class LetterKeyViewModel : KeyViewModelBase
 
     public void UpdateLetterResult(LetterState letterState)
     {
-        if (letterState is Models.Enums.LetterState.None or Models.Enums.LetterState.WrongLetter)
-        {
-            LetterState = letterState;
-        }
-        else if (letterState == Models.Enums.LetterState.RightLetterWrongPlace
-                 && LetterState != Models.Enums.LetterState.RightLetterRightPlace)
-        {
-            LetterState = letterState;
-        }
-        else
+        if (letterState > LetterState)
         {
             LetterState = letterState;
         }

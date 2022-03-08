@@ -3,7 +3,7 @@
 public enum LetterState
 {
     None,
-    RightLetterRightPlace,
+    WrongLetter,
     RightLetterWrongPlace,
-    WrongLetter
+    RightLetterRightPlace
 }
