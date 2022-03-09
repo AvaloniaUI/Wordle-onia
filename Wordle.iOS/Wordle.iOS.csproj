@@ -6,8 +6,12 @@
     <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <ProvisioningType>manual</ProvisioningType>
     <Nullable>enable</Nullable>
-    
-    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <CodesignKey>Apple Distribution: AVALONIAUI OU (9D486DVKN8)</CodesignKey>
+    <CodesignProvision>WordleProvisioningProfile</CodesignProvision>
   </PropertyGroup>
 
   <ItemGroup>
