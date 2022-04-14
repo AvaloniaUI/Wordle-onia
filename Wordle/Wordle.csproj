@@ -3,7 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-    <AvaloniaVersion>0.10.999-cibuild0019037-beta</AvaloniaVersion>
+    <AvaloniaVersion>0.10.999-cibuild0019890-beta</AvaloniaVersion>
   </PropertyGroup>
   <ItemGroup>    
     <AvaloniaResource Include="Assets\**" />
