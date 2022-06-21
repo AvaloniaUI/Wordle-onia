@@ -2,16 +2,19 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0-ios</TargetFramework>
-    <AvaloniaVersion>0.10.999-cibuild0019890-beta</AvaloniaVersion>
+    <AvaloniaVersion>0.10.999-cibuild0021189-beta</AvaloniaVersion>
     <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <ProvisioningType>manual</ProvisioningType>
     <Nullable>enable</Nullable>
-    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CodesignKey>Apple Development: jumar@macato.net (S66Z98PJ8N)</CodesignKey>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <CodesignKey>Apple Distribution: AVALONIAUI OU (9D486DVKN8)</CodesignKey>
-    <CodesignProvision>WordleProvisioningProfile</CodesignProvision>
+    <CodesignKey>Apple Development: jumar@macato.net (S66Z98PJ8N)</CodesignKey>
   </PropertyGroup>
 
   <ItemGroup>
