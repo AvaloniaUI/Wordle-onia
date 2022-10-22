@@ -23,13 +23,13 @@ public class KeyboardLetterButton : Button
         PseudoClasses.Set(":right-letter-placement", newValue == LetterState.RightLetterRightPlace);
     }
 
-    protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change)
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
 
         if (change.Property == StateProperty)
         {
-            UpdatePsuedoClasses(change.NewValue.GetValueOrDefault<LetterState>());
+            UpdatePsuedoClasses(change.GetNewValue<LetterState>());
         }
     }
 }

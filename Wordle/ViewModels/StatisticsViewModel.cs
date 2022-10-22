@@ -14,7 +14,7 @@ public partial class StatisticsViewModel : ObservableObject
     private int _played;
 
     [ObservableProperty]
-    [AlsoNotifyChangeFor(nameof(WinPercentage))]
+    [NotifyPropertyChangedFor(nameof(WinPercentage))]
     private int _won;
 
     public int WinPercentage => Won / Played * 100;

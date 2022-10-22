@@ -30,7 +30,7 @@ public class Letter : TemplatedControl
         set => SetValue(StateProperty, value);
     }
 
-    protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change)
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
 
@@ -42,14 +42,14 @@ public class Letter : TemplatedControl
 
         if (change.Property == CharacterProperty)
         {
-            if (change.OldValue.HasValue && change.OldValue.Value is null &&
-                change.NewValue.HasValue && change.NewValue.Value is string newChar && char.IsLetter(newChar[0]))
+            if (change.OldValue is null &&
+                change.NewValue is string newChar && char.IsLetter(newChar[0]))
             {
                 _hasLetter = true;
             }
 
-            if (change.NewValue.HasValue && change.NewValue.Value is null &&
-                change.OldValue.HasValue && change.OldValue.Value is string oldChar && char.IsLetter(oldChar[0]))
+            if (change.NewValue is null &&
+                change.OldValue is string oldChar && char.IsLetter(oldChar[0]))
             {
                 _hasLetter = false;
             }

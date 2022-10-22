@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AvaloniaVersion>11.0.999-cibuild0025179-beta</AvaloniaVersion>
+    <MaterialAvaloniaVersion>3.0.0-avalonia11-preview2</MaterialAvaloniaVersion>
+  </PropertyGroup>
+</Project>

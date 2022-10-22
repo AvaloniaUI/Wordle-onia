@@ -5,11 +5,8 @@ using Avalonia.Input.TextInput;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
 using System;
-using System.Runtime.InteropServices;
-using Avalonia.Controls.Presenters;
 using Avalonia.VisualTree;
 using Wordle.Messages;
-using Avalonia.Input;
 
 namespace Wordle.Views
 {
@@ -20,6 +17,11 @@ namespace Wordle.Views
         public EntireScreenInputClient(MainView parent)
         {
             _parent = parent;
+        }
+
+        public void SelectInSurroundingText(int start, int end)
+        {
+            
         }
 
         public Rect CursorRectangle

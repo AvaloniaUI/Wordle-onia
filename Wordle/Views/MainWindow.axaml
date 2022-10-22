@@ -9,7 +9,6 @@
         ExtendClientAreaChromeHints="PreferSystemChrome"
         CanResize="False" Width="450" Height="800"
         Background="{x:Null}"
-        Icon="/Assets/avalonia-logo.ico"
         Title="Wordle">
   <Panel>
       <Panel IsHitTestVisible="False" Background="#171C2C" />
