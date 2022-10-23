@@ -17,17 +17,17 @@
     <Grid>
         <Grid RowDefinitions="*, Auto, Auto">
             <Grid Grid.Row="0" Margin="5">
-                <Viewbox
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Stretch="Uniform"
-                    StretchDirection="DownOnly">
-                    <views:GameView DataContext="{Binding Game}" />
+                <Viewbox DataContext="{Binding Game}"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Stretch="Uniform"
+                         StretchDirection="DownOnly">
+                    <views:GameView  />
                 </Viewbox>
                 <!--<views:NotificationsView HorizontalAlignment="Center" />-->
             </Grid>
-            <Viewbox Grid.Row="1" Margin="2 5 2 15" MaxWidth="500">
-                <views:KeyboardView DataContext="{Binding Keyboard}" />
+            <Viewbox Grid.Row="1" Margin="2 5 2 15" MaxWidth="500" DataContext="{Binding Keyboard}">
+                <views:KeyboardView />
             </Viewbox>
             <Panel Background="#171C2C" VerticalAlignment="Center" IsVisible="{Binding ShowWonDialog}" Height="190" Grid.Row="1" Margin="2 5 2 15" MaxWidth="500">
                 <Border Margin="40" CornerRadius="4">
