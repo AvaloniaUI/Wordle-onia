@@ -6,6 +6,7 @@
     <ProvisioningType>manual</ProvisioningType>
     <Nullable>enable</Nullable>
     <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <UseInterpreter>True</UseInterpreter>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

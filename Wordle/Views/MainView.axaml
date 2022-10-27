@@ -9,7 +9,7 @@
              x:DataType="viewModels:MainViewModel"
              x:CompileBindings="True"
              Foreground="White"
-             Background="#171C2C" Focusable="True">
+             Background="#171C2C" Focusable="True" Padding="{OnFormFactor 0, Mobile=10 40 10 0}">
     <Design.DataContext>
         <viewModels:MainViewModel />
     </Design.DataContext>

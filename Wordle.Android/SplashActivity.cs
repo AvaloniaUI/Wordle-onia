@@ -11,7 +11,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 namespace Wordle.Android
 {
     [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true)]
-    public class SplashActivity : Activity
+    public class SplashActivity : AvaloniaSplashActivity<App>
     {
         protected override void OnResume()
         {

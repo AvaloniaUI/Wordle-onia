@@ -13,6 +13,5 @@ namespace Wordle.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : AvaloniaAppDelegate<App>
     {
-        
     }
 }
