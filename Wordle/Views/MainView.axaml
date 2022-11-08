@@ -13,42 +13,148 @@
     <Design.DataContext>
         <viewModels:MainViewModel />
     </Design.DataContext>
+    
+    <UserControl.Styles>
+        <Style>
+            <Style.Resources>
+                <DrawingImage x:Key="Avalonia">
+                    <DrawingGroup>
+                        <GeometryDrawing Brush="White"
+                                         Geometry="M43 14.6a28.3 28.3 0 0 0-27.6 22.1 6.4 6.4 0 0 1 0 12.4 28.3 28.3 0 0 0 41.2 18.6V71h14.7V42.9a28.3 28.3 0 0 0-28.2-28.3ZM29.6 43a13.5 13.5 0 1 1 27.1 0 13.5 13.5 0 0 1-27 0Z" />
+                        <GeometryDrawing Brush="White"
+                                         Geometry="M18.1 42.9a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z" />
+                    </DrawingGroup>
+                </DrawingImage>
+            </Style.Resources>
+            
+            <Style Selector="Panel.splashContent">
+                <Style.Animations>
+                    <Animation Delay="0:0:0" Duration="0:0:2" Easing="QuadraticEaseInOut" FillMode="Both">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="IsVisible" Value="True" />
+                            <Setter Property="Opacity" Value="0" />
+                        </KeyFrame>
+                        <KeyFrame Cue="20%">
+                            <Setter Property="Opacity" Value="1" />
+                        </KeyFrame>
+                        <KeyFrame Cue="80%">
+                            <Setter Property="Opacity" Value="1" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="Opacity" Value="0" />
+                            <Setter Property="IsVisible" Value="False" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+            </Style>
+            <Style Selector="Panel.splashContent Image">
+                <Style.Animations>
+                    <Animation Delay="0:0:0" Duration="0:0:2" Easing="QuadraticEaseInOut" FillMode="Both">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="(ScaleTransform.ScaleX)" Value="0.7" />
+                            <Setter Property="(ScaleTransform.ScaleY)" Value="0.7" />
+                        </KeyFrame>
+                        <KeyFrame Cue="20%">
+                            <Setter Property="(ScaleTransform.ScaleX)" Value="1" />
+                            <Setter Property="(ScaleTransform.ScaleY)" Value="1" />
+                        </KeyFrame>
+                        <KeyFrame Cue="80%">
+                            <Setter Property="(ScaleTransform.ScaleX)" Value="1" />
+                            <Setter Property="(ScaleTransform.ScaleY)" Value="1" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="(ScaleTransform.ScaleX)" Value="1.5" />
+                            <Setter Property="(ScaleTransform.ScaleY)" Value="1.5" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+            </Style>
+            <Style Selector="Panel.mainContent">
+                <Style.Animations>
+                    <Animation Delay="0:0:2" Duration="0:0:1" Easing="QuadraticEaseInOut" FillMode="Both">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="(ScaleTransform.ScaleX)" Value="0.7" />
+                            <Setter Property="(ScaleTransform.ScaleY)" Value="0.7" />
+                            <Setter Property="Opacity" Value="0" />
+                        </KeyFrame>
+                        <KeyFrame Cue="20%">
+                            <Setter Property="(ScaleTransform.ScaleX)" Value="1" />
+                            <Setter Property="(ScaleTransform.ScaleY)" Value="1" />
+                            <Setter Property="Opacity" Value="1" />
+                        </KeyFrame>
+                        <KeyFrame Cue="80%">
+                            <Setter Property="(ScaleTransform.ScaleX)" Value="1" />
+                            <Setter Property="(ScaleTransform.ScaleY)" Value="1" />
+                            <Setter Property="Opacity" Value="1" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="Opacity" Value="1" />
+                            <Setter Property="(ScaleTransform.ScaleX)" Value="1" />
+                            <Setter Property="(ScaleTransform.ScaleY)" Value="1" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+            </Style>
+        </Style>
+    </UserControl.Styles>
+    
+    <Panel>
+        <Panel Classes="mainContent">
+            <Panel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Panel.RenderTransform>
+            <Grid>
+                <Grid RowDefinitions="5*, 5*, Auto">
+                    <Grid Grid.Row="0" Margin="5">
+                        <Viewbox DataContext="{Binding Game}"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Stretch="Uniform"
+                                 StretchDirection="DownOnly">
+                            <views:GameView  />
+                        </Viewbox>
+                        <!--<views:NotificationsView HorizontalAlignment="Center" />-->
+                    </Grid>
+                    <Viewbox Grid.Row="1" Margin="2 5 2 15" DataContext="{Binding Keyboard}">
+                        <views:KeyboardView />
+                    </Viewbox>
+                    <Panel Background="#171C2C" VerticalAlignment="Center" IsVisible="{Binding ShowWonDialog}" Height="190" Grid.Row="1" Margin="2 5 2 15" MaxWidth="500">
+                        <Border Margin="40" CornerRadius="4">
+                            <StackPanel Spacing="20" DockPanel.Dock="Top">
+                                <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Congratulations you solved todays word. Come back tomorrow for another round." />
+                                <TextBlock TextAlignment="Center" Text="This app was made with Avalonia" />
+                            </StackPanel>
+                        </Border>
+                    </Panel>
+                    <Grid Grid.Row="2" Margin="5,5,5,7" ColumnDefinitions="32, 32, *, 32, 32">
+                        <Viewbox Grid.Column="1">
+                            <Image Source="/Assets/Icon.png"/>
+                        </Viewbox>
+                        <TextBlock
+                            Grid.Column="2"
+                            HorizontalAlignment="Center"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource TextForegroundKey}"
+                            Text="Wordle-onia" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Panel>
 
-    <Grid>
-        <Grid RowDefinitions="5*, 5*, Auto">
-            <Grid Grid.Row="0" Margin="5">
-                <Viewbox DataContext="{Binding Game}"
-                         HorizontalAlignment="Center"
-                         VerticalAlignment="Center"
-                         Stretch="Uniform"
-                         StretchDirection="DownOnly">
-                    <views:GameView  />
-                </Viewbox>
-                <!--<views:NotificationsView HorizontalAlignment="Center" />-->
-            </Grid>
-            <Viewbox Grid.Row="1" Margin="2 5 2 15" DataContext="{Binding Keyboard}">
-                <views:KeyboardView />
-            </Viewbox>
-            <Panel Background="#171C2C" VerticalAlignment="Center" IsVisible="{Binding ShowWonDialog}" Height="190" Grid.Row="1" Margin="2 5 2 15" MaxWidth="500">
-                <Border Margin="40" CornerRadius="4">
-                    <StackPanel Spacing="20" DockPanel.Dock="Top">
-                        <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Congratulations you solved todays word. Come back tomorrow for another round." />
-                        <TextBlock TextAlignment="Center" Text="This app was made with Avalonia" />
-                    </StackPanel>
-                </Border>
-            </Panel>
-            <Grid Grid.Row="2" Margin="5,5,5,7" ColumnDefinitions="32, 32, *, 32, 32">
-                <Viewbox Grid.Column="1">
-                    <Image Source="/Assets/Icon.png"/>
-                </Viewbox>
-                <TextBlock
-                    Grid.Column="2"
-                    HorizontalAlignment="Center"
-                    FontSize="24"
-                    FontWeight="Bold"
-                    Foreground="{DynamicResource TextForegroundKey}"
-                    Text="Wordle-onia" />
-            </Grid>
-        </Grid>
-    </Grid>
+        <Panel Classes="splashContent">
+            <Panel Background="#171C2C" />
+            <Image Source="{StaticResource Avalonia}" MinWidth="24" MinHeight="24" MaxHeight="128" MaxWidth="128">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Image.RenderTransform> 
+            </Image>
+        </Panel>
+    </Panel>
 </UserControl>
