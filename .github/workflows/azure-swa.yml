@@ -23,7 +23,7 @@ jobs:
         run: dotnet workload install wasm-tools
 
       - name: Publish .NET Project
-        run: dotnet publish Wordle.Browser/Wordle.Browser.csproj -p:RunAOTCompilation=true -c Release --nologo
+        run: dotnet publish Wordle.Browser/Wordle.Browser.csproj -c Release --nologo
 
       - name: Build And Deploy
         id: builddeploy

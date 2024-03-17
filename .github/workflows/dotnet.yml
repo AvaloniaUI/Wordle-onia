@@ -19,7 +19,7 @@ jobs:
       run: sudo dotnet workload install wasm-tools
 
     - name: Publish .NET Project
-      run: dotnet publish Wordle.Browser/Wordle.Browser.csproj -p:RunAOTCompilation=true -c Release --nologo
+      run: dotnet publish Wordle.Browser/Wordle.Browser.csproj -c Release --nologo
 
     - name: Add .nojekyll file
       run: sudo touch Wordle.Browser/bin/Release/net8.0-browser/publish/wwwroot/.nojekyll
