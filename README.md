@@ -7,7 +7,7 @@ Much of the code is based on https://github.com/xEsteem/WPFordle
 Wordle-onia is a simple application that shows Avalonia running on Desktop, Mobile and Web.
 
 For instructions on how to prepare your system to build for mobile follow the documentation at:
-https://docs.avaloniaui.net/tutorials/developing-for-mobile
+[Android docs](https://docs.avaloniaui.net/docs/guides/platforms/android/) and [iOS docs](https://docs.avaloniaui.net/docs/guides/platforms/ios/)
 
 ![image](https://user-images.githubusercontent.com/4672627/156905488-b8fa7821-e1e7-4251-8f54-2a8d303e4ee9.png)
 
