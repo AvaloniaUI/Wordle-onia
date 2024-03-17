@@ -1,35 +1,31 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia.Input.TextInput;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
-using System;
-using Avalonia.VisualTree;
+using Microsoft.Extensions.DependencyInjection;
 using Wordle.Messages;
 
-namespace Wordle.Views
+namespace Wordle.Views;
+
+internal partial class MainView : UserControl
 {
-    public partial class MainView : UserControl
+    private readonly IMessenger _messenger;
+
+    public MainView()
     {
-        private readonly IMessenger _messenger;
+        InitializeComponent();
 
-        public MainView()
-        {
-            InitializeComponent();
-
-            _messenger = AvaloniaLocator.Current.GetService<IMessenger>();
+        _messenger = App.ServiceProvider!.GetRequiredService<IMessenger>();
             
-            Dispatcher.UIThread.Post(()=>Focus(), DispatcherPriority.Loaded);
-        }
+        Dispatcher.UIThread.Post(()=>Focus(), DispatcherPriority.Loaded);
+    }
 
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            base.OnKeyDown(e);
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        base.OnKeyDown(e);
             
-            _messenger.Send(new KeyPressedMessage(e.Key));
+        _messenger.Send(new KeyPressedMessage(e.Key));
 
-            e.Handled = true;
-        }
+        e.Handled = true;
     }
 }

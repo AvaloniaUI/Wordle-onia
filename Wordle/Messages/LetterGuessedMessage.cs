@@ -3,13 +3,7 @@
 using CommunityToolkit.Mvvm.Messaging.Messages;
 using Models.Enums;
 
-public class LetterGuessedMessage : ValueChangedMessage<char>
+public class LetterGuessedMessage(char value, LetterState letterState) : ValueChangedMessage<char>(value)
 {
-    public LetterGuessedMessage(char value, LetterState letterState)
-        : base(value)
-    {
-        LetterState = letterState;
-    }
-
-    public LetterState LetterState { get; }
+    public LetterState LetterState { get; } = letterState;
 }

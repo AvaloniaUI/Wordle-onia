@@ -15,7 +15,7 @@ public class ThemeServiceImpl : IThemeService
 
     public void SetThemeSettings(bool dark, bool highContrast)
     {
-        IThemeService.Theme oldTheme = _currentTheme;
+        var oldTheme = _currentTheme;
         IThemeService.Theme newTheme;
         if (dark)
         {

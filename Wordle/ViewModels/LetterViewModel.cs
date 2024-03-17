@@ -3,13 +3,8 @@
 using Models;
 using Models.Enums;
 
-public class LetterViewModel : ObservableViewModel<LetterModel>
+public class LetterViewModel(LetterModel model) : ObservableViewModel<LetterModel>(model)
 {
-    public LetterViewModel(LetterModel model)
-        : base(model)
-    {
-    }
-
     public char? Character => Model.Character;
 
     public LetterState State => Model.State;

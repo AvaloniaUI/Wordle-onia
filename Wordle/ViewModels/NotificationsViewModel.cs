@@ -14,7 +14,7 @@ public class NotificationsViewModel : ObservableObject
 
     public NotificationsViewModel(IMessenger messenger)
     {
-        Notifications = new ObservableCollection<string>();
+        Notifications = [];
 
         messenger.Register<PushNotificationMessage>(this, (_, message) => PushNotification(message.Value));
     }

@@ -25,10 +25,10 @@ public class WordProviderImpl : IWordProvider
             throw new WordsNotLoadedException();
         }
 
-        DateOnly today = DateOnly.FromDateTime(DateTime.Now);
-        int hash = today.GetHashCode();
+        var today = DateOnly.FromDateTime(DateTime.Now);
+        var hash = today.GetHashCode();
         Random random = new(hash);
-        int index = random.Next(0, _answersList.Count);
+        var index = random.Next(0, _answersList.Count);
 
         return _answersList.ElementAt(index);
     }
@@ -40,7 +40,7 @@ public class WordProviderImpl : IWordProvider
             throw new WordsNotLoadedException();
         }
 
-        string key = word.ToUpper();
+        var key = word.ToUpper();
         return _answersList.Contains(key) || _validGuessesList.Contains(key);
     }
 
@@ -48,13 +48,13 @@ public class WordProviderImpl : IWordProvider
     {
         using HttpClient httpClient = new();
 
-        string answersString = await httpClient.GetStringAsync(AnswersListUri);
+        var answersString = await httpClient.GetStringAsync(AnswersListUri);
         _answersList = answersString.Split('\n', '\r')
             .Select(x => x.Trim().ToUpper())
             .Where(x => !string.IsNullOrWhiteSpace(x))
             .ToHashSet();
 
-        string validGuessesString = await httpClient.GetStringAsync(ValidGuessesListUri);
+        var validGuessesString = await httpClient.GetStringAsync(ValidGuessesListUri);
         _validGuessesList = validGuessesString.Split('\n', '\r')
             .Select(x => x.Trim().ToUpper())
             .Select(x => x.Trim())
@@ -62,11 +62,6 @@ public class WordProviderImpl : IWordProvider
             .ToHashSet();
     }
 
-    private class WordsNotLoadedException : Exception
-    {
-        public WordsNotLoadedException()
-            : base("Words list not loaded. Call .LoadAsync prior to trying to get word related information.")
-        {
-        }
-    }
+    private class WordsNotLoadedException()
+        : Exception("Words list not loaded. Call .LoadAsync prior to trying to get word related information.");
 }

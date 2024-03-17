@@ -13,14 +13,14 @@ public class GuessValidationServiceImpl : IGuessValidationService
         // TODO: This really need reworking totally, ive had to temp hack some new logic in here as i found a bug
         (LetterModel, LetterState)[] letterResults = new (LetterModel, LetterState)[guess.Letters.Count];
 
-        List<LetterModel> matchedGuessLetters = new();
-        List<LetterModel> matchedTargetLetters = new();
+        List<LetterModel> matchedGuessLetters = [];
+        List<LetterModel> matchedTargetLetters = [];
 
         // Get all correct letters first
-        for (int i = 0; i < guess.Letters.Count; i++)
+        for (var i = 0; i < guess.Letters.Count; i++)
         {
-            LetterModel letter = guess.Letters.ElementAt(i);
-            LetterModel targetLetter = target.Letters.ElementAt(i);
+            var letter = guess.Letters.ElementAt(i);
+            var targetLetter = target.Letters.ElementAt(i);
 
             if (letter.Character == targetLetter.Character)
             {
@@ -31,15 +31,15 @@ public class GuessValidationServiceImpl : IGuessValidationService
         }
 
         // Now get partially correct
-        for (int i = 0; i < guess.Letters.Count; i++)
+        for (var i = 0; i < guess.Letters.Count; i++)
         {
-            LetterModel letter = guess.Letters.ElementAt(i);
+            var letter = guess.Letters.ElementAt(i);
             if (matchedGuessLetters.Contains(letter))
             {
                 continue;
             }
 
-            LetterModel? partialMatch = target.Letters.Except(matchedTargetLetters)
+            var partialMatch = target.Letters.Except(matchedTargetLetters)
                 .FirstOrDefault(x => x.Character == letter.Character);
             if (partialMatch != null)
             {

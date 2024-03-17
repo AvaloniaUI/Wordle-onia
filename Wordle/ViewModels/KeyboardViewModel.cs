@@ -3,19 +3,16 @@
 namespace Wordle.ViewModels;
 
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Messages;
 using Models.Enums;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Input;
 
 public class KeyboardViewModel : ObservableObject
 {
     private static readonly Key[] KeyboardRow1 =
-    {
+    [
         Key.Q,
         Key.W,
         Key.E,
@@ -26,10 +23,10 @@ public class KeyboardViewModel : ObservableObject
         Key.I,
         Key.O,
         Key.P
-    };
+    ];
 
     private static readonly Key[] KeyboardRow2 =
-    {
+    [
         Key.A,
         Key.S,
         Key.D,
@@ -39,10 +36,10 @@ public class KeyboardViewModel : ObservableObject
         Key.J,
         Key.K,
         Key.L
-    };
+    ];
 
     private static readonly Key[] KeyboardRow3 =
-    {
+    [
         Key.Z,
         Key.X,
         Key.C,
@@ -50,7 +47,7 @@ public class KeyboardViewModel : ObservableObject
         Key.B,
         Key.N,
         Key.M
-    };
+    ];
 
     public KeyboardViewModel(IMessenger messenger)
     {
@@ -60,7 +57,7 @@ public class KeyboardViewModel : ObservableObject
         IReadOnlyCollection<KeyViewModelBase> rowTwoKeys =
             KeyboardRow2.Select(x => new LetterKeyViewModel(x, messenger)).ToList();
 
-        List<KeyViewModelBase> rowThreeKeys =
+        var rowThreeKeys =
             KeyboardRow3.Select(x => new LetterKeyViewModel(x, messenger)).ToList<KeyViewModelBase>();
         rowThreeKeys.Insert(0, new EnterKeyViewModel(messenger));
         rowThreeKeys.Add(new DeleteKeyViewModel(messenger));
@@ -81,7 +78,7 @@ public class KeyboardViewModel : ObservableObject
 
     private void OnLetterGuessed(char character, LetterState letterState)
     {
-        LetterKeyViewModel? match = Keys.SelectMany(x => x)
+        var match = Keys.SelectMany(x => x)
             .OfType<LetterKeyViewModel>()
             .FirstOrDefault(x => x.Label == character);
 
@@ -109,31 +106,13 @@ public partial class KeyViewModelBase : ObservableObject
     }
 }
 
-public class EnterKeyViewModel : KeyViewModelBase
-{
-    public EnterKeyViewModel(IMessenger messenger)
-        : base(Key.Enter, messenger)
-    {
-    }
-}
+public class EnterKeyViewModel(IMessenger messenger) : KeyViewModelBase(Key.Enter, messenger);
 
-public class DeleteKeyViewModel : KeyViewModelBase
-{
-    public DeleteKeyViewModel(IMessenger messenger)
-        : base(Key.Back, messenger)
-    {
-    }
-}
+public class DeleteKeyViewModel(IMessenger messenger) : KeyViewModelBase(Key.Back, messenger);
 
-public class LetterKeyViewModel : KeyViewModelBase
+public class LetterKeyViewModel(Key key, IMessenger messenger) : KeyViewModelBase(key, messenger)
 {
-    public LetterKeyViewModel(Key key, IMessenger messenger)
-        : base(key, messenger)
-    {
-        Label = key.ToString().ToUpper().ToCharArray()[0];
-    }
-
-    public char Label { get; }
+    public char Label { get; } = key.ToString().ToUpper().ToCharArray()[0];
 
     public void UpdateLetterResult(LetterState letterState)
     {

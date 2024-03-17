@@ -5,10 +5,8 @@ namespace Wordle.ViewModels;
 using CommunityToolkit.Mvvm.Messaging;
 using Messages;
 using Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Input;
 
 public class GameViewModel : ObservableViewModel<GameModel>
 {
@@ -27,7 +25,7 @@ public class GameViewModel : ObservableViewModel<GameModel>
 
     private async void CommitGuess()
     {
-        GuessResult? guess = await Model.CommitGuess();
+        var guess = await Model.CommitGuess();
         if (guess == null)
         {
             return;
@@ -45,7 +43,7 @@ public class GameViewModel : ObservableViewModel<GameModel>
 
         if (guess.Validated && guess.GuessedWord != null)
         {
-            foreach (LetterModel guessedWordLetter in guess.GuessedWord.Letters)
+            foreach (var guessedWordLetter in guess.GuessedWord.Letters)
             {
                 _messenger.Send(
                     new LetterGuessedMessage(

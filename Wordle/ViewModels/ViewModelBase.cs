@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Wordle.ViewModels
+namespace Wordle.ViewModels;
+
+public partial class ViewModelBase : ObservableObject
 {
-    [ObservableObject]
-    public partial class ViewModelBase
-    {
-    }
 }

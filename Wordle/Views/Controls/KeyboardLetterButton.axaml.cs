@@ -1,6 +1,5 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 using Wordle.Models.Enums;
 
 namespace Wordle.Views.Controls;

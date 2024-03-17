@@ -6,12 +6,11 @@
              xmlns:controls="clr-namespace:Wordle.Views.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="viewModels:GameViewModel"
-             x:CompileBindings="True"
              x:Class="Wordle.Views.GameView">
-    <ItemsControl Items="{Binding Guesses}">
+    <ItemsControl ItemsSource="{Binding Guesses}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <ItemsControl Items="{Binding Letters}">
+                <ItemsControl ItemsSource="{Binding Letters}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" />

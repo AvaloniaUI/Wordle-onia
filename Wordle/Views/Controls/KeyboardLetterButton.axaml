@@ -1,62 +1,46 @@
-﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="using:Wordle.Views.Controls">
-  <Design.PreviewWith>
-    <controls:KeyboardLetterButton />
-  </Design.PreviewWith>
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:Wordle.Views.Controls"
+                    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <controls:KeyboardLetterButton />
+    </Design.PreviewWith>
 
-  <Style Selector="controls|KeyboardLetterButton">
-    <Setter Property="Cursor" Value="Hand" />
-    <Setter Property="FontSize" Value="14" />
-    <Setter Property="FontWeight" Value="Bold" />
-    <Setter Property="HorizontalContentAlignment" Value="Center" />
-    <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border
-          x:Name="PART_Border"
-          Background="{TemplateBinding Background}"
-          BorderThickness="0"
-          CornerRadius="4">
-          <ContentPresenter
-            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-            Content="{TemplateBinding Content}" />
-        </Border>
-      </ControlTemplate>
-    </Setter>
-  </Style>
+    <ControlTheme x:Key="{x:Type controls:KeyboardLetterButton}"
+                  TargetType="controls:KeyboardLetterButton">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Background" Value="{DynamicResource KeyBackgroundKey}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextForegroundKey}" />
+        <Setter Property="RenderTransform" Value="scale(1,1)" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:.25" />
+            </Transitions>
+        </Setter>
 
-  <Style Selector="controls|KeyboardLetterButton">
-    <Setter Property="Background" Value="{DynamicResource KeyBackgroundKey}" />
-    <Setter Property="Foreground" Value="{DynamicResource TextForegroundKey}" />
-    <Setter Property="RenderTransform" Value="scale(1,1)" />
-    <Setter Property="Transitions">
-      <Transitions>
-        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:.25" />
-      </Transitions>
-    </Setter>
-  </Style>
+        <Style Selector="^:right-letter-placement">
+            <Setter Property="Background" Value="{DynamicResource CorrectGuessKey}" />
+            <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
+        </Style>
 
-  <Style Selector="controls|KeyboardLetterButton:right-letter-placement">
-    <Setter Property="Background" Value="{DynamicResource CorrectGuessKey}" />
-    <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
-  </Style>
+        <Style Selector="^:right-letter">
+            <Setter Property="Background" Value="{DynamicResource IndeterminateGuessKey}" />
+            <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
+        </Style>
 
-  <Style Selector="controls|KeyboardLetterButton:right-letter">
-    <Setter Property="Background" Value="{DynamicResource IndeterminateGuessKey}" />
-    <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
-  </Style>
+        <Style Selector="^:wrong-letter">
+            <Setter Property="Background" Value="{DynamicResource IncorrectGuessKey}" />
+            <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
+        </Style>
 
-  <Style Selector="controls|KeyboardLetterButton:wrong-letter">
-    <Setter Property="Background" Value="{DynamicResource IncorrectGuessKey}" />
-    <Setter Property="Foreground" Value="{DynamicResource GuessedTextForegroundKey}" />
-  </Style>
-
-  <Style Selector="controls|KeyboardLetterButton:pressed">
-    <Setter Property="Background" Value="{DynamicResource KeyBackgroundKeyPressed}" />
-    <Setter Property="RenderTransform" Value="scale(1.1,1.1)" />
-  </Style>
-
-</Styles>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource KeyBackgroundKeyPressed}" />
+            <Setter Property="RenderTransform" Value="scale(1.1,1.1)" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

@@ -59,9 +59,9 @@ public class GameModel : ObservableModel
                 };
             }
 
-            WordModel currentGuess = Guesses.ElementAt(_currentGuessIndex);
-            string currentWord = string.Join(null, currentGuess.Letters.Select(x => x.Character));
-            bool isRecognizedWord = _wordProvider.IsRecognizedWord(currentWord);
+            var currentGuess = Guesses.ElementAt(_currentGuessIndex);
+            var currentWord = string.Join(null, currentGuess.Letters.Select(x => x.Character));
+            var isRecognizedWord = _wordProvider.IsRecognizedWord(currentWord);
             if (!isRecognizedWord)
             {
                 return new GuessResult
@@ -77,7 +77,7 @@ public class GameModel : ObservableModel
             _currentGuessIndex++;
             _currentLetterIndex = 0;
 
-            bool success = currentGuess.Letters.All(x => x.State == LetterState.RightLetterRightPlace);
+            var success = currentGuess.Letters.All(x => x.State == LetterState.RightLetterRightPlace);
             GuessResult guessResult = new()
             {
                 Success = success,
@@ -117,8 +117,8 @@ public class GameModel : ObservableModel
         }
 
         _currentLetterIndex--;
-        WordModel currentGuess = Guesses.ElementAt(_currentGuessIndex);
-        LetterModel currentLetterGuess = currentGuess.Letters.ElementAt(_currentLetterIndex);
+        var currentGuess = Guesses.ElementAt(_currentGuessIndex);
+        var currentLetterGuess = currentGuess.Letters.ElementAt(_currentLetterIndex);
         currentLetterGuess.Character = null;
 
         return true;
@@ -141,8 +141,8 @@ public class GameModel : ObservableModel
             return false;
         }
 
-        WordModel currentGuess = Guesses.ElementAt(_currentGuessIndex);
-        LetterModel currentLetterGuess = currentGuess.Letters.ElementAt(_currentLetterIndex);
+        var currentGuess = Guesses.ElementAt(_currentGuessIndex);
+        var currentLetterGuess = currentGuess.Letters.ElementAt(_currentLetterIndex);
         currentLetterGuess.Character = letter;
         _currentLetterIndex++;
 
