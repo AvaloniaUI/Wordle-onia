@@ -1,10 +1,8 @@
 <Project>
   <PropertyGroup>
-    <Deterministic>true</Deterministic>
-    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-  </PropertyGroup>
-  <PropertyGroup>
     <AvaloniaVersion>11.1.0-beta1</AvaloniaVersion>
+    <LangVersion>latest</LangVersion>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
 </Project>

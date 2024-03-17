@@ -6,14 +6,13 @@
              xmlns:controls="clr-namespace:Wordle.Views.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="viewModels:KeyboardViewModel"
-             x:CompileBindings="True"
              x:Class="Wordle.Views.KeyboardView">
     <ItemsControl ItemsSource="{Binding Keys}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
                 <ItemsControl ItemsSource="{Binding}">
                     <ItemsControl.DataTemplates>
-                        <DataTemplate x:CompileBindings="False" x:DataType="viewModels:LetterKeyViewModel" DataType="viewModels:LetterKeyViewModel">
+                        <DataTemplate x:DataType="viewModels:LetterKeyViewModel" DataType="viewModels:LetterKeyViewModel">
                             <controls:KeyboardLetterButton
                                 Width="43"
                                 Height="64"
@@ -24,7 +23,7 @@
                                 Cursor="Hand"
                                 State="{Binding LetterState}" />
                         </DataTemplate>
-                        <DataTemplate x:CompileBindings="False" x:DataType="viewModels:EnterKeyViewModel" DataType="viewModels:EnterKeyViewModel">
+                        <DataTemplate x:DataType="viewModels:EnterKeyViewModel" DataType="viewModels:EnterKeyViewModel">
                             <controls:KeyboardLetterButton
                                 Width="65"
                                 Height="58"
@@ -32,7 +31,7 @@
                                 Command="{Binding KeyPressed}"
                                 Content="ENTER" />
                         </DataTemplate>
-                        <DataTemplate x:CompileBindings="False" x:DataType="viewModels:DeleteKeyViewModel" DataType="viewModels:DeleteKeyViewModel">
+                        <DataTemplate x:DataType="viewModels:DeleteKeyViewModel" DataType="viewModels:DeleteKeyViewModel">
                             <controls:KeyboardLetterButton
                                 Width="65"
                                 Height="58"
