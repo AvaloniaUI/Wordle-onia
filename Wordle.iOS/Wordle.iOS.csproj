@@ -1,17 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0-ios</TargetFramework>
-    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
-    <ProvisioningType>manual</ProvisioningType>
+    <TargetFramework>net8.0-ios</TargetFramework>
+    <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
     <Nullable>enable</Nullable>
-    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
-    <UseInterpreter>True</UseInterpreter>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <CodesignKey>Apple Distribution: AVALONIAUI OU (9D486DVKN8)</CodesignKey>
-    <CodesignProvision>WordleProvisioningProfile</CodesignProvision>
   </PropertyGroup>
 
   <ItemGroup>
