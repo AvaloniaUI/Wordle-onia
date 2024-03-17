@@ -1,14 +1,4 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Application = Android.App.Application;
-
-using Avalonia;
-using Avalonia.Android;
-using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
-
-namespace Wordle.Android
+﻿namespace Wordle.Android
 {
     [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true)]
     public class SplashActivity : AvaloniaSplashActivity<App>

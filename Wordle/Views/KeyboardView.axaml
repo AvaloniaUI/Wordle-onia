@@ -8,10 +8,10 @@
              x:DataType="viewModels:KeyboardViewModel"
              x:CompileBindings="True"
              x:Class="Wordle.Views.KeyboardView">
-    <ItemsControl Items="{Binding Keys}">
+    <ItemsControl ItemsSource="{Binding Keys}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <ItemsControl Items="{Binding}">
+                <ItemsControl ItemsSource="{Binding}">
                     <ItemsControl.DataTemplates>
                         <DataTemplate x:CompileBindings="False" x:DataType="viewModels:LetterKeyViewModel" DataType="viewModels:LetterKeyViewModel">
                             <controls:KeyboardLetterButton

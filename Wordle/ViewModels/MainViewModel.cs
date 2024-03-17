@@ -1,47 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Avalonia;
-using Avalonia.Threading;
+﻿using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Wordle.Messages;
 using Wordle.Models;
 using Wordle.Services;
 
-namespace Wordle.ViewModels
+namespace Wordle.ViewModels;
+
+public partial class MainViewModel : ViewModelBase
 {
-    public partial class MainViewModel : ViewModelBase
+    [ObservableProperty]
+    private GameViewModel? _game;
+
+    [ObservableProperty] 
+    private bool _showWonDialog;
+
+    public MainViewModel(
+        IMessenger messenger,
+        IWordProvider wordProvider,
+        IGuessValidationService validationService)
     {
-        [ObservableProperty]
-        private GameViewModel _game;
-
-        [ObservableProperty] 
-        private bool _showWonDialog;
-        
-        public MainViewModel()
+        _ = Dispatcher.UIThread.InvokeAsync(async () =>
         {
-            var messenger = AvaloniaLocator.Current.GetService<IMessenger>();
-            
-            Dispatcher.UIThread.Post(async () =>
-            {
-                var wordProvider = AvaloniaLocator.Current.GetService<IWordProvider>();
+            await wordProvider.LoadAsync();
 
-                await wordProvider.LoadAsync();
-                
-                var gameModel = new GameModel(AvaloniaLocator.Current.GetService<IGuessValidationService>(), wordProvider);
+            var gameModel = new GameModel(validationService, wordProvider);
 
-                Game = new GameViewModel(gameModel, messenger);
-            });
-            
-            Keyboard = new KeyboardViewModel(messenger);
-            
-            messenger.Register<MainViewModel, GameWonMessage>(this, (recipient, message) =>
-            {
-                ShowWonDialog = true;
-            });
-        }
+            Game = new GameViewModel(gameModel, messenger);
+        });
 
-        public KeyboardViewModel Keyboard { get; }
+        Keyboard = new KeyboardViewModel(messenger);
+            
+        messenger.Register<MainViewModel, GameWonMessage>(this, (recipient, message) =>
+        {
+            ShowWonDialog = true;
+        });
     }
+
+    public KeyboardViewModel Keyboard { get; }
 }

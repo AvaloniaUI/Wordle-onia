@@ -5,7 +5,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
-    <AvaloniaVersion>11.0.0-preview3</AvaloniaVersion>
-    <MaterialAvaloniaVersion>3.0.0-avalonia11-preview2</MaterialAvaloniaVersion>
+    <AvaloniaVersion>11.1.0-beta1</AvaloniaVersion>
   </PropertyGroup>
 </Project>

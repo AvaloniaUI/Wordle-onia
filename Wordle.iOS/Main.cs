@@ -1,5 +1,3 @@
-using UIKit;
-
 namespace Wordle.iOS
 {
     public class Application

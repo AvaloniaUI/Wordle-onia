@@ -1,5 +1,3 @@
-using Avalonia.Web.Blazor;
-
 namespace Wordle.Web;
 
 public partial class App

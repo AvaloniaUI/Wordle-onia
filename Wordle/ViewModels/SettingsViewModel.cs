@@ -15,7 +15,7 @@ public class SettingsViewModel : ObservableObject
         ArgumentNullException.ThrowIfNull(themeService);
 
         _themeService = themeService;
-        IThemeService.Theme currentTheme = themeService.GetCurrentTheme();
+        var currentTheme = themeService.GetCurrentTheme();
 
         switch (currentTheme)
         {

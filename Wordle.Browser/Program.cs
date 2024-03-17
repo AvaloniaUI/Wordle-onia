@@ -1,8 +1,3 @@
-using System.Runtime.Versioning;
-using Avalonia;
-using Avalonia.Web;
-using Wordle;
-
 [assembly:SupportedOSPlatform("browser")]
 
 internal partial class Program

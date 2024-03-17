@@ -8,10 +8,10 @@
              x:DataType="viewModels:GameViewModel"
              x:CompileBindings="True"
              x:Class="Wordle.Views.GameView">
-    <ItemsControl Items="{Binding Guesses}">
+    <ItemsControl ItemsSource="{Binding Guesses}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <ItemsControl Items="{Binding Letters}">
+                <ItemsControl ItemsSource="{Binding Letters}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" />

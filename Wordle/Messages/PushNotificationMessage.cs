@@ -1,21 +1,7 @@
-﻿using System.Reactive;
-
-namespace Wordle.Messages;
+﻿namespace Wordle.Messages;
 
 using CommunityToolkit.Mvvm.Messaging.Messages;
 
-public class PushNotificationMessage : ValueChangedMessage<string>
-{
-    public PushNotificationMessage(string message)
-        : base(message)
-    {
-    }
-}
+public class PushNotificationMessage(string message) : ValueChangedMessage<string>(message);
 
-public class GameWonMessage : ValueChangedMessage<Unit>
-{
-    public GameWonMessage() : base(Unit.Default)
-    {
-        
-    }
-}
+public class GameWonMessage() : ValueChangedMessage<bool>(true);
