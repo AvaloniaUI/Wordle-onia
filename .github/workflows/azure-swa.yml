@@ -17,13 +17,13 @@ jobs:
       - name: Setup .NET 8
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 8.0.100
+          dotnet-version: 8.0.203
 
       - name: Install wasm-tools
         run: dotnet workload install wasm-tools
 
       - name: Publish .NET Project
-        run: dotnet publish Wordle.Browser/Wordle.Browser.csproj -c Release --nologo
+        run: dotnet publish Wordle.Browser/Wordle.Browser.csproj -c Release
 
       - name: Build And Deploy
         id: builddeploy
