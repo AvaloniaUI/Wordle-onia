@@ -14,21 +14,17 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1.9.0
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.100
 
       - name: Install wasm-tools
-        run: dotnet workload install wasm-tools wasm-experimental
-
-      - name: Install DotNetCompress
-        run: dotnet tool install --global DotNetCompress --version 1.0.0-preview.7 --no-cache
+        run: dotnet workload install wasm-tools
 
       - name: Publish .NET Project
-        run: dotnet publish Wordle.Browser/Wordle.Browser.csproj -c Release -o release --nologo
+        run: dotnet publish Wordle.Browser/Wordle.Browser.csproj -p:RunAOTCompilation=true -c Release --nologo
 
-      - name: Brotli Compress Output (dll)
-        run: DotNetCompress -d Wordle.Browser/bin/Release/net7.0/browser-wasm/AppBundle/ -p '*.dll' -p '*.js' -p '*.symbols' -p '*.blat' -p '*.bin' -p '*.wasm'
-        
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -38,7 +34,7 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "Wordle.Browser/bin/Release/net7.0/browser-wasm/AppBundle/" # App source code path
+          app_location: "Wordle.Browser/bin/Release/net8.0-browser/publish/wwwroot/" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "" # Modify this to where your SSG places the built HTML - could be `dist`, `build`... check your config          
           skip_app_build: true

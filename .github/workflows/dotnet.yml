@@ -10,27 +10,23 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1.9.0
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.100
 
     - name: Install wasm-tools
       run: sudo dotnet workload install wasm-tools
 
     - name: Publish .NET Project
-      run: sudo dotnet publish Wordle.Web/Wordle.Web.csproj -c Release -o release --nologo
-
-    - name: Change base-tag in index.html from / to Wordle
-      run: sudo sed -i 's/<base href="\/" \/>/<base href="\/Wordle-onia\/" \/>/g' release/wwwroot/index.html
-
-    - name: copy index.html to 404.html
-      run: sudo cp release/wwwroot/index.html release/wwwroot/404.html
+      run: dotnet publish Wordle.Browser/Wordle.Browser.csproj -p:RunAOTCompilation=true -c Release --nologo
 
     - name: Add .nojekyll file
-      run: sudo touch release/wwwroot/.nojekyll
+      run: sudo touch Wordle.Browser/bin/Release/net8.0-browser/publish/wwwroot/.nojekyll
 
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: release/wwwroot
+        FOLDER: Wordle.Browser/bin/Release/net8.0-browser/publish/wwwroot/
